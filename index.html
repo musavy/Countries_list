@@ -3,48 +3,312 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>World Countries List</title>
+    <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"  
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
       crossorigin="anonymous"
-
-    /> <!---fontawsome-->
-
-    <link rel="stylesheet" href="./style.css" /> <!---Css link-->
+    />
+    <link rel="stylesheet" href="./style.css" />
   </head>
-
-  
   <body>
-    <h1><u>World Countries List</u></h1>
-    <!-- heading tag -->
-
+    <h1><marquee>World Countries List</marquee></h1>
     <h3>Total Number of countries 193</h3>
-
     <button id="btn1">Starting Word</button>
-    <!--creating buttons and give them ids-->
-
     <button id="btn2">Search with any word</button>
-
     <button id="sort1">
       <i class="fas fa-sort-alpha-down"></i></button
     ><br />
 
     <input type="text" placeholder="Search country" />
-    <!--creating input field and puting id -->
-
-    <div class="result_box"></div>           <!---creating this to show how many countries contain-->
-
-
     <div class="countries"></div>
-    <!-- creating empty div to show the result of coutnry_list  --->
-    
-    <script src="./js/countries.js">
-      //javascript part opening tag
-      
-      </script>
-      <script src="./js/main.js"></script>
+
+    <script>
+      const country_list = [
+        "Afghanistan",
+        "Albania",
+        "Algeria",
+        "Andorra",
+        "Angola",
+        "Anguilla",
+        "Antigua &amp; Barbuda",
+        "Argentina",
+        "Armenia",
+        "Aruba",
+        "Australia",
+        "Austria",
+        "Azerbaijan",
+        "Bahamas",
+        "Bahrain",
+        "Bangladesh",
+        "Barbados",
+        "Belarus",
+        "Belgium",
+        "Belize",
+        "Benin",
+        "Bermuda",
+        "Bhutan",
+        "Bolivia",
+        "Bosnia &amp; Herzegovina",
+        "Botswana",
+        "Brazil",
+        "British Virgin Islands",
+        "Brunei",
+        "Bulgaria",
+        "Burkina Faso",
+        "Burundi",
+        "Cambodia",
+        "Cameroon",
+        "Canada",
+        "Cape Verde",
+        "Cayman Islands",
+        "Chad",
+        "Chile",
+        "China",
+        "Colombia",
+        "Congo",
+        "Cook Islands",
+        "Costa Rica",
+        "Cote D Ivoire",
+        "Croatia",
+        "Cruise Ship",
+        "Cuba",
+        "Cyprus",
+        "Czech Republic",
+        "Denmark",
+        "Djibouti",
+        "Dominica",
+        "Dominican Republic",
+        "Ecuador",
+        "Egypt",
+        "El Salvador",
+        "Equatorial Guinea",
+        "Estonia",
+        "Ethiopia",
+        "Falkland Islands",
+        "Faroe Islands",
+        "Fiji",
+        "Finland",
+        "France",
+        "French Polynesia",
+        "French West Indies",
+        "Gabon",
+        "Gambia",
+        "Georgia",
+        "Germany",
+        "Ghana",
+        "Gibraltar",
+        "Greece",
+        "Greenland",
+        "Grenada",
+        "Guam",
+        "Guatemala",
+        "Guernsey",
+        "Guinea",
+        "Guinea Bissau",
+        "Guyana",
+        "Haiti",
+        "Honduras",
+        "Hong Kong",
+        "Hungary",
+        "Iceland",
+        "India",
+        "Indonesia",
+        "Iran",
+        "Iraq",
+        "Ireland",
+        "Isle of Man",
+        "Israel",
+        "Italy",
+        "Jamaica",
+        "Japan",
+        "Jersey",
+        "Jordan",
+        "Kazakhstan",
+        "Kenya",
+        "Kuwait",
+        "Kyrgyz Republic",
+        "Laos",
+        "Latvia",
+        "Lebanon",
+        "Lesotho",
+        "Liberia",
+        "Libya",
+        "Liechtenstein",
+        "Lithuania",
+        "Luxembourg",
+        "Macau",
+        "Macedonia",
+        "Madagascar",
+        "Malawi",
+        "Malaysia",
+        "Maldives",
+        "Mali",
+        "Malta",
+        "Mauritania",
+        "Mauritius",
+        "Mexico",
+        "Moldova",
+        "Monaco",
+        "Mongolia",
+        "Montenegro",
+        "Montserrat",
+        "Morocco",
+        "Mozambique",
+        "Namibia",
+        "Nepal",
+        "Netherlands",
+        "Netherlands Antilles",
+        "New Caledonia",
+        "New Zealand",
+        "Nicaragua",
+        "Niger",
+        "Nigeria",
+        "Norway",
+        "Oman",
+        "Pakistan",
+        "Palestine",
+        "Panama",
+        "Papua New Guinea",
+        "Paraguay",
+        "Peru",
+        "Philippines",
+        "Poland",
+        "Portugal",
+        "Puerto Rico",
+        "Qatar",
+        "Reunion",
+        "Romania",
+        "Russia",
+        "Rwanda",
+        "Saint Pierre &amp; Miquelon",
+        "Samoa",
+        "San Marino",
+        "Satellite",
+        "Saudi Arabia",
+        "Senegal",
+        "Serbia",
+        "Seychelles",
+        "Sierra Leone",
+        "Singapore",
+        "Slovakia",
+        "Slovenia",
+        "South Africa",
+        "South Korea",
+        "Spain",
+        "Sri Lanka",
+        "St Kitts &amp; Nevis",
+        "St Lucia",
+        "St Vincent",
+        "St. Lucia",
+        "Sudan",
+        "Suriname",
+        "Swaziland",
+        "Sweden",
+        "Switzerland",
+        "Syria",
+        "Taiwan",
+        "Tajikistan",
+        "Tanzania",
+        "Thailand",
+        "Timor L'Este",
+        "Togo",
+        "Tonga",
+        "Trinidad &amp; Tobago",
+        "Tunisia",
+        "Turkey",
+        "Turkmenistan",
+        "Turks &amp; Caicos",
+        "Uganda",
+        "Ukraine",
+        "United Arab Emirates",
+        "United Kingdom",
+        "United States",
+        "United States Minor Outlying Islands",
+        "Uruguay",
+        "Uzbekistan",
+        "Venezuela",
+        "Vietnam",
+        "Virgin Islands (US)",
+        "Yemen",
+        "Zambia",
+        "Zimbabwe"
+      ];
+      const randomColor = () => {
+        let r = Math.floor(Math.random() * 0xff).toString(16);
+        let g = Math.floor(Math.random() * 0xff).toString(16);
+        let b = Math.floor(Math.random() * 0xff).toString(16);
+        return `#${r}${g}${b}`;
+      };
+      const searchBtn1 = document.querySelector("#btn1");
+      const searchword = document.querySelector("#btn2");
+      const sort1 = document.querySelector("#sort1");
+      const input = document.querySelector("input");
+      const box1 = document.querySelector(".countries");
+      const arry = [];
+      let searchBtn = false;
+      let searchWith = false;
+      let sort = false;
+      showWorld(country_list);
+      //for loop
+      function showWorld(countries) {
+        box1.innerHTML = "";
+        for (let i = 0; i < countries.length; i++) {
+          let box = document.querySelector(".countries");
+
+          /*  box.textContent = country_list[i]; */
+          let spa1 = document.createElement("span");
+          spa1.textContent = countries[i];
+          spa1.style.background = randomColor();
+          box.appendChild(spa1);
+
+        }
+      }
+
+      //declare eventlistner
+      searchBtn1.addEventListener("click", (e) => {
+        searchBtn = true;
+        searchBtn1.style.color = "yellow";
+        searchBtn1.style.background = "lightgreen";
+        searchword.style.background = "tomato";
+      });
+
+      //declare 2 event listner
+      searchword.addEventListener("click", (e) => {
+        searchWith = true;
+        searchword.style.color = "white";
+        searchword.style.background = "tomato";
+        searchBtn1.style.background = "tomato";
+      });
+
+      sort1.addEventListener("click", (e) => {
+        sort = true;
+        sort1.style.color= "tomato";
+        searchword.style.background = "tomato";
+        showWorld(country_list.reverse());
+      });
+
+      input.addEventListener("input", () => {
+        if (searchBtn) {
+          let result = [];
+
+          result = country_list.filter((country) => {
+            return country.toUpperCase().startsWith(input.value.toUpperCase());
+          });
+          //console.log(result);
+          showWorld(result);
+        }
+
+        if (searchWith) {
+          let result1 = [];
+          result1 = country_list.filter((country) => {
+            return country.toUpperCase().includes(input.value.toUpperCase());
+          });
+          showWorld(result1);
+        }
+      });
+    </script>
   </body>
 </html>
